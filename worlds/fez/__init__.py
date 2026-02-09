@@ -102,6 +102,7 @@ class FezWorld(World):
         return self.options.as_dict(
             "death_link",
             "goal",
+            "scramble_tetrominos",
             "disable_visual_pain"
         )
 
