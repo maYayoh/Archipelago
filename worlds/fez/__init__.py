@@ -97,6 +97,8 @@ class FezWorld(World):
         set_rules(self)
         if self.options.knowledge_logic:
             set_knowledge_rules(self)
+        elif self.options.scramble_tetrominos:
+            set_tetromino_rules(self)
 
     def fill_slot_data(self) -> Dict[str, Any]:
         return self.options.as_dict(
