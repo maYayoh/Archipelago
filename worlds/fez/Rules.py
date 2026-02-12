@@ -121,6 +121,11 @@ def set_knowledge_rules(world: FezWorld) -> None:
 
 
 def set_tetromino_rules(world: FezWorld, knowledgeLogic: bool) -> None:
+    """Rules for tetromino codes logic"""
+    # Helper functions
+    get_location = lambda name: world.multiworld.get_location(name, world.player)
+    get_entrance = lambda start, end: world.multiworld.get_entrance(f"{start} -> {end}", world.player)
+
     # Tetromino logic
     tetromino_rule: CollectionRule = None
     first_person_rule: CollectionRule = None
