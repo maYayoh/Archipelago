@@ -132,6 +132,7 @@ def set_tetromino_rules(world: FezWorld, knowledgeLogic: bool) -> None:
     if knowledgeLogic:
         tetromino_rule = lambda state: (state.can_reach_region("Code Machine", world.player)
             and state.can_reach_region("Nu Zu School", world.player))
+            and state.can_reach_region("Oldschool", world.player) # number_rule
         first_person_rule = lambda state: (state.has("Sunglasses", world.player) and tetromino_rule(state))
     else:
         tetromino_rule = lambda state: state.can_reach_region("Code Machine", world.player)
@@ -147,7 +148,6 @@ def set_tetromino_rules(world: FezWorld, knowledgeLogic: bool) -> None:
     add_rule(get_entrance("Sewer to Lava", "Lava"), tetromino_rule)
 
     # First-person logic
-    first_person_rule: CollectionRule = lambda state: (state.has("Sunglasses", world.player) and tetromino_rule(state))
     add_rule(get_location("Lighthouse Floor Anti-Cube"), first_person_rule)
     add_rule(get_location("Tree Cabin Floor Anti-Cube"), first_person_rule)
     add_rule(get_location("Tree Sky Floor Anti-Cube"), first_person_rule)
