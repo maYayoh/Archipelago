@@ -131,8 +131,8 @@ def set_tetromino_rules(world: FezWorld, knowledgeLogic: bool) -> None:
     first_person_rule: CollectionRule = None
     if knowledgeLogic:
         tetromino_rule = lambda state: (state.can_reach_region("Code Machine", world.player)
-            and state.can_reach_region("Nu Zu School", world.player))
-            and state.can_reach_region("Oldschool", world.player) # number_rule
+            and state.can_reach_region("Nu Zu School", world.player)
+            and state.can_reach_region("Oldschool", world.player)) # number_rule
         first_person_rule = lambda state: (state.has("Sunglasses", world.player) and tetromino_rule(state))
     else:
         tetromino_rule = lambda state: state.can_reach_region("Code Machine", world.player)
